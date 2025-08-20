@@ -1,36 +1,34 @@
 import { ReactNode } from "react";
 
+// General reusable props
 export interface ComponentProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
+// Button component props
 export interface ButtonProps {
-  title: string
-  action?: () => void
+  title: string;
+  onClick?: () => void; // renamed from `action` → `onClick`
 }
 
-export interface MovieProps {
-  id?: string
-  posterImage: string
-  releaseYear: string
-  title: string
-}
-
-interface PrimaryImage {
-  url: string
-}
-
-interface TitleText {
-  text: string
-}
-
-interface ReleaseYear {
-  year: string
-}
-
+// Local Movie type for internal components
 export interface MoviesProps {
-  id: string
-  primaryImage: PrimaryImage
-  titleText: TitleText
-  releaseYear: ReleaseYear
+  id: string;
+  primaryImage: { url: string };
+  titleText: { text: string };
+  releaseYear: { year: string };
+}
+
+// API response types (aligns with IMDb/other APIs)
+export interface MoviesApiResponse {
+  id: string;
+  primaryImage?: {
+    url: string;
+  };
+  titleText: {
+    text: string;
+  };
+  releaseYear?: {
+    year: string;
+  };
 }
