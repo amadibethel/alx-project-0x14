@@ -23,7 +23,7 @@ const Home: React.FC = () => {
           </p>
           <Button
             title="Browse Movies"
-            action={() => router.push("/movies", undefined, { shallow: false })}
+            onClick={() => router.push("/movies", undefined, { shallow: false })}
           />
         </div>
       </section>

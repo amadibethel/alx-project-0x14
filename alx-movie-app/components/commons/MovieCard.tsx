@@ -1,18 +1,24 @@
 // components/commons/MovieCard.tsx
-import { MoviesProps } from "@/interfaces";
+
 import Image from "next/image";
 
-const MovieCard: React.FC<MoviesProps> = ({ primaryImage, titleText, releaseYear }) => {
+interface MovieCardProps {
+  titleText: { text: string };
+  posterImage: string;
+  releaseYear: string; // simple string
+}
+
+const MovieCard: React.FC<MovieCardProps> = ({ titleText, posterImage, releaseYear }) => {
   return (
     <div className="movie-card">
       <Image
-        src={primaryImage.url}
+        src={posterImage}
         alt={titleText.text}
         width={200}
         height={300}
       />
       <h3>{titleText.text}</h3>
-      <p>{releaseYear.year}</p>
+      <p>{releaseYear}</p>
     </div>
   );
 };
